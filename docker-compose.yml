@@ -1,9 +1,11 @@
 version: '3.1'
 
 services:
-  tomcat-hotswap:
-    image: tomcat-docker-hotswap:7-jdk8-adoptopenjdk-hotspot
+  tomcat:
+    build:
+      context: web/
     ports:
-    - "8080:8080"
-    - "8082:8082"
-    - "8081:8081"
+      - "8000:8000"
+      - "8080:8080"
+      - "8081:8081"
+      - "9010:9010"

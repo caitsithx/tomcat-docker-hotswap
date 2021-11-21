@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  tomcat:
+    image: billing-tomcat-dev_tomcat:latest
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+      - "8081:8081"
+      - "9000:9000"
+    volumes:
+    - ./target/billing.servers.frontend.web-290.0.0-SNAPSHOT:/usr/local/tomcat/webapps/apps

@@ -1,9 +1,5 @@
-FROM tomcat:7-jdk8-adoptopenjdk-hotspot
+FROM billing-tomcat-dev_tomcat:latest
+LABEL maintainer="xili@zuora.com"
 
-COPY jrebel6 /usr/local/tomcat/jrebel6
-COPY conf/server.xml /usr/local/tomcat/conf/server.xml
+COPY ./target/billing.servers.frontend.web-290.0.0-SNAPSHOT /usr/local/tomcat/webapps/apps
 
-ENV CATALINA_OPTS="-agentpath:/usr/local/tomcat/jrebel6/lib/libjrebel64.so -Drebel.remoting_plugin=true -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true"
-ENV JPDA_ADDRESS="8082"
-
-CMD ["catalina.sh", "jpda", "run"]
